@@ -1,0 +1,9 @@
+{
+  "name": "pnpm-cache-node-env",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "which node && node -v"
+  },
+  "packageManager": "pnpm@8.6.12"
+}

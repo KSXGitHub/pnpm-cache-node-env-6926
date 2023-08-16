@@ -1,0 +1,32 @@
+name: Test
+
+on:
+  - push
+
+jobs:
+  test:
+    name: Test
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+
+      - name: Use corepack to install pnpm
+        run: corepack enable
+
+      - name: Cache
+        uses: actions/cache@v3
+        with:
+          key: pnpm
+          path: ~/.local/share/pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Test
+        run: pnpm test
